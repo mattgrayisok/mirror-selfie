@@ -44,8 +44,26 @@ class ScrapeInstagramImages extends Command
             $json = $this->getJSONFromInstagram('selfie');
 
             foreach ($this->getImageNodesFromJSON($json) as $image) {
+                
                 $id = $image->id;
                 $url = $image->display_src;
+                $code = $image->code;
+                $link = 'https://www.instagram.com/p/'.$code;
+
+                \DB::insert("insert ignore into images (
+                    path,
+                    instagram_code,
+                    instagram_id,
+                    link,
+                    username,
+                    votes,
+                    date,
+                    created_at,
+                    updated_at
+                ) VALUES (
+                    ?, ?, ?, ?, NULL, 0, NOW(), NOW(), NOW()
+                )", array( $url, $code, $id, $link ));
+                
                 echo($url . "\n");
             }
 

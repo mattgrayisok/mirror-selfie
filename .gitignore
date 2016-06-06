@@ -6,3 +6,5 @@ Homestead.json
 .env
 .DS_Store
 ._*
+public_html
+*.swp

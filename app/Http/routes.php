@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', '\App\Http\Controllers\PageController@showHome');
+Route::get('/image/{id}', ['as' => 'singleImage' , 'uses' => 'PageController@showSingle']);
+Route::get('/random', ['as' => 'random', 'uses' => 'PageController@showRandom']);
+Route::get('/picks', ['as' => 'picks', 'uses' => 'PageController@showPicks']);
+Route::get('/metaimage/{id}', ['as' => 'metaimage', 'uses' => 'MetaImageController@generate']);
