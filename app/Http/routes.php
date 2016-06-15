@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', '\App\Http\Controllers\PageController@showHome');
+Route::get('/', ['as' => 'home', 'uses' => '\App\Http\Controllers\PageController@showHome']);
 Route::get('/image/{id}', ['as' => 'singleImage' , 'uses' => 'PageController@showSingle']);
 Route::get('/random', ['as' => 'random', 'uses' => 'PageController@showRandom']);
 Route::get('/picks', ['as' => 'picks', 'uses' => 'PageController@showPicks']);

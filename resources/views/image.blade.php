@@ -1,5 +1,27 @@
 @extends('templates/master')
 
+@section('meta_additional')
+
+@include('meta.opengraph', [
+  'og_title' => 'MirrorSelfie',
+  'og_description' => 'A messed up selfie on MirrorSelfie',
+  'og_type' => 'article',
+  'og_image' => route('metaimage', $image->id),
+  'og_url' => Request::url(),
+  'og_site' => 'MirrorSelfie',
+])
+
+@include('meta.twitter', [
+  'tw_type' => 'photo',
+  'tw_user' => 'slice_beans',
+  'tw_creator' => 'slice_beans',
+  'tw_title' => 'MirrorSelfie',
+  'tw_description' => 'A messed up selfie on MirrorSelfie',
+  'tw_image' => route('metaimage', $image->id),
+])
+
+@stop
+
 @section('allcontent')
     <div class="container bs-docs-container">
 

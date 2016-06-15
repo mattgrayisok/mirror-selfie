@@ -1,5 +1,28 @@
 @extends('templates.master')
 
+
+@section('meta_additional')
+
+@include('meta.opengraph', [
+  'og_title' => 'MirrorSelfie',
+  'og_description' => 'All the selfies, messsed up',
+  'og_type' => 'article',
+  'og_image' => asset('assets/images/facebook.png'),
+  'og_url' => route('home'),
+  'og_site' => 'MirrorSelfie',
+])
+
+@include('meta.twitter', [
+  'tw_type' => 'summary',
+  'tw_user' => 'slice_beans',
+  'tw_creator' => 'slice_beans',
+  'tw_title' => 'MirrorSelfie',
+  'tw_description' => 'All the selfies, messsed up',
+  'tw_image' => asset('assets/images/facebook.png'),
+])
+
+@stop
+
 @section('allcontent')
 
 <div class="container bs-docs-container">
