@@ -64,7 +64,7 @@ class ScrapeInstagramImages extends Command
                     ?, ?, ?, ?, NULL, 0, NOW(), NOW(), NOW()
                 )", array( $url, $code, $id, $link ));
                 
-                echo($url . "\n");
+                //echo($url . "\n");
             }
 
             sleep($this->sleepLength);
